@@ -1,0 +1,5 @@
+c) Guido van Rossum
+d) all of the mentioned
+b) no
+c) .py
+b) Python code is neither compiled nor interpreted

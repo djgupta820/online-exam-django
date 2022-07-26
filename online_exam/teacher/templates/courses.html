@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Courses</title>
+{% endblock %}
+    
+{% block content%}
+    <p class="_dirs"> <a href="{% url 'dashboard' %}">Home </a> &#10095; <a href="{% url 'courses' %}"> Courses</a> </p>
+    <h1>Courses</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Course Code</th>
+            <th scope="col">Started Year</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if courses %}
+                {% for course in courses %}
+                    <tr>
+                        <td>{{course.course_name}}</td>
+                        <td>{{course.course_code}}</td>
+                        <td>{{course.started_year}}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-danger">
+                    No Courses Found 
+                </div>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

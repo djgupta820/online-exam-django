@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Search Result</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Search Result for <i>{{query}}</i> </h1>
+    {% if exams %}
+    <div class="alert alert-success">
+        <h4>{{lenth}} Results<small>(s)</small> Found</h4>
+    </div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Course</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Subject Code</th>
+                <th scope="col">Date Of Exam</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Scheduled By</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+            <tr>
+                <td>{{exam.course}}</td>
+                <td>{{exam.semester}}</td>
+                <td>{{exam.subject}}</td>
+                <td>{{exam.subject_code}}</td>
+                <td>{{exam.date_of_exam}}</td>
+                <td>{{exam.start_time}}</td>
+                <td>{{exam.end_time}}</td>
+                <td>{{exam.scheduled_by}}</td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-danger"> <b> No Data Found For {{query}} </b> </div>
+    {% endif %}
+{% endblock %}

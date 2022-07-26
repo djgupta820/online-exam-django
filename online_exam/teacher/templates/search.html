@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Search Result</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Search Result for <i>{{query}}</i> </h1>
+    {% if students %}
+    <div class="alert alert-success">
+        <h4>{{lenth}} Results<small>(s)</small> Found</h4>
+    </div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Roll Number</th>
+                <th scope="col">Course</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Joined</th>
+                <th scope="col">Registered at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{student.first_name}}</td>
+                <td>{{student.last_name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.roll_number}}</td>
+                <td>{{student.course}}</td>
+                <td>{{student.semester}}</td>
+                <td>{{student.joined}}</td>
+                <td>{{student.registered_at}}</td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-danger"> <b> No Data Found For {{query}} </b> </div>
+    {% endif %}
+{% endblock %}

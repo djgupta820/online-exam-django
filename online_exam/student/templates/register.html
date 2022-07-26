@@ -1,0 +1,127 @@
+{% load crispy_forms_tags %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <style>
+        body{
+            background-color: rgb(231, 234, 236);
+        }
+        .bx{
+            margin-left: 30%;
+            margin-top:2%;
+            margin-bottom:2%;
+            display: inline-block;
+            background-color: rgb(248, 252, 251);
+            padding:5%;
+            box-shadow: 0 0 1rem gray ;
+        }
+        label{
+            margin-top:20px;
+        }
+        button{
+            margin-top:3%;
+        }
+    </style>
+    <title>Student Registration</title>
+</head>
+<body>
+    <div class="container">
+        <div class="bx">
+            <h1>Student Registration</h1>
+            <p> <font color="red"> required fields are marked as * </font> </p>
+            {% if errors %}
+                <div class="alert alert-danger">
+                    {{errors}}
+                </div>
+            {% endif %}
+            <form action="{% url 'registration' %}" method="POST">
+                {% csrf_token %}
+
+                <div id="div_id_first_name" class="control-group error"> 
+                    <label for="first_name" class="control-label requiredField">
+                    First Name<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="text" class="form-control"name="first_name" class="textinput textInput" required="" id="first_name"> 
+                    </div> 
+                </div>
+
+                <div id="div_id_first_name" class="control-group error"> 
+                    <label for="last_name" class="control-label requiredField">
+                    Last Name<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="text" class="form-control" name="last_name" class="textinput textInput" required="" id="last_name">  
+                    </div> 
+                </div>
+
+                <div id="div_id_first_name" class="control-group error"> 
+                    <label for="email" class="control-label requiredField">
+                    Email <span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="email" class="form-control" name="email" class="textinput textInput" required="" id="email"> 
+                    </div> 
+                </div>
+
+                <div id="div_id_first_name" class="control-group error"> 
+                    <label for="id_first_name" class="control-label requiredField">
+                    Roll Number<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="text" class="form-control" name="roll_number" class="textinput textInput" required="" id="id_roll_number"> 
+                    </div> 
+                </div>
+                <div class="control-group error">
+                    <label for="course" class="control-label requiredField">
+                        Course<span class="asteriskField">*</span> </label> 
+                    <select name="course" id="course" class="form-control">
+                        <option value="select">Select</option>
+                        {% for course in courses %}
+                        <option value="{{course.course_name}}">{{course.course_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="control-group error">
+                    <label for="semester" class="control-label requiredField">
+                        Semester<span class="asteriskField">*</span> </label> 
+                    <select name="semester" id="semester" class="form-control">
+                        <option value="select">Select</option>
+                        {% for sem in sems %}
+                        <option value="{{sem}}">{{sem}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="control-group error"> 
+                    <label for="joined" class="control-label requiredField">
+                    Joined<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="date" class="form-control" name="joined" class="textinput textInput" required id="joined"> 
+                    </div> 
+                </div>
+
+                <div class="control-group error"> 
+                    <label for="password1" class="control-label requiredField">
+                    Password<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="password" class="form-control" name="password1" class="textinput textInput" required id="password1"> 
+                    </div> 
+                </div>
+
+                <div class="control-group error"> 
+                    <label for="password2" class="control-label requiredField">
+                    Confirm Password<span class="asteriskField">*</span> </label> 
+                    <div class="controls"> 
+                        <input type="password" class="form-control" name="password2" class="textinput textInput" required id="password2"> 
+                    </div> 
+                </div>
+
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+            <p style="margin-top:20px;">If you already have an account, <a href="{% url 'student_login' %}">login</a> instead.</p>
+        </div>
+    </div>
+</body>
+</html>

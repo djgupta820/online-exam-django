@@ -1,0 +1,25 @@
+q1. Who developed Python Programming Language?
+1a) Wick van Rossum
+1b) Rasmus Lerdorf
+1c) Guido van Rossum
+1d) Niene Stom
+q2. Which type of Programming does Python support?
+2a) object-oriented programming
+2b) structured programming
+2c) functional programming
+2d) all of the mentioned
+q3. Is Python case sensitive when dealing with identifiers?
+3a) no
+3b) yes
+3c) machine dependent
+3d) none of the mentioned
+q4. Which of the following is the correct extension of the Python file?
+4a) .python
+4b) .pl
+4c) .py
+4d) .p
+q5. Is Python code compiled or interpreted?
+5a) Python code is both compiled and interpreted
+5b) Python code is neither compiled nor interpreted
+5c) Python code is only compiled
+5d) Python code is only interpreted

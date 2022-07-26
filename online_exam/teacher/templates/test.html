@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+    <h1>Test</h1>
+    {% if arr %}
+        <form action="#" style="margin-left:10%;" >
+            {% for line in arr %}
+                {% with qn=line.0 %}
+                        {% if line.0 not in 'a,b,c,d' %}
+                            <h4>{{line}}</h4>
+                        {% else %}
+                            <input type="radio" name="ques{{line.0}}" id=""> <label> {{line}} </label> <br>
+                        {% endif %}
+                {% endwith %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary" style="margin-top:3%;"> Submit Test </button>
+        </form>
+    {% else %}
+        No Data
+    {% endif %}
+
+{% endblock %}

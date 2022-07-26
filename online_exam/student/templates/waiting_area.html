@@ -1,0 +1,38 @@
+{% extends 'st_base.html' %}
+{% load static %}
+{% block title %}
+    <title>Waiting Area</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Waiting Area</h1>
+    <div style="display:flex;">
+        {% for exam in exams %}
+            <div class="exm">
+                <div style="display:flex; font-weight: 500;">
+                    <div>
+                        <p><h4>Course</h4></p>
+                        <p>  Semester </p>
+                        <p> Subject </p>
+                        <p> Subject Code: </p>
+                        <p> Date of Exam: </p>
+                        <p> Start Time: </p>
+                        <p> End Time: </p>
+                    </div>
+                    <div style="margin-left:10%;">
+                        <p><h4> {{exam.course}} </h4></p>
+                        <p> {{exam.semester}}  </p>
+                        <p> {{exam.subject}} </p>
+                        <p> {{exam.subject_code}} </p>
+                        <p> {{exam.date_of_exam}} </p>
+                        <p id="startTime"> {{exam.start_time}} </p>
+                        <p id="endTime"> {{exam.end_time}} </p>
+                    </div>
+                </div>
+                <form action="#">
+                    <button type="submit" class="btn btn-outline-success" id="examBtn" disabled> Start </button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

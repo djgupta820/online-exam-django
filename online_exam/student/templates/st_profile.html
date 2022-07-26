@@ -1,0 +1,54 @@
+{% extends 'st_base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block content %}
+    
+    <h1>Profile</h1>
+
+    {% if student %}
+        <div class="box">
+            <div class="pro-img">
+                <center>
+                    <figure> <img src="{% static 'man.png' %}" alt="Profile Picture"> </figure>
+                    <figcaption> <h5>{{student.email}}</h5> </figcaption>
+                </center>
+            </div>
+            <div class="data">
+                <h3> {{student.first_name}} {{student.last_name}}</h3>
+                <div style="display:flex;">
+                    <div>
+                        <p> First Name: </p>
+                        <p> Last Name: </p>
+                        <p> Email: </p>
+                        <p> Roll Number: </p>
+                        <p> Course: </p>
+                        <p> Semester: </p>
+                        <p> Joined: </p>
+                    </div>
+    
+                    <div style="margin-left:20%;">
+                        <p style="text-transform: capitalize;"> {{student.first_name}} </p>
+                        <p style="text-transform: capitalize;"> {{student.last_name}} </p>
+                        <p> {{student.email}} </p>
+                        <p> {{student.roll_number}} </p>
+                        <p> {{student.course}} </p>
+                        <p> {{student.semester}} </p=>
+                        <p> {{student.joined}} </p>
+                    </div>
+                </div>
+                <form action="#" method="get">
+                    <button type="submit" class="btn btn-info">Request Update</button>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-danger">
+            No Data Available
+        </div>
+    {% endif %}
+
+{% endblock %}

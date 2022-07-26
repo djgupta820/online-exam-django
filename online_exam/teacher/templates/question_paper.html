@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block title %}
+    <title>Question Paper</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Question Paper</h1>
+    <div style="margin-left:8%; margin-bottom: 5%;">
+        {% if q %}
+            <form action="#" method="post">
+                {% csrf_token %}
+                {% for line in q %}
+                {% with qn=line.0 %}
+                    <div class="form-check">
+                        {% if line.0 not in "a, b, c, d" %}
+                            <h4> {{line}} </h4>
+                            {% update qn:line.0 %}
+                        {% else %}
+                            <input class="form-check-input" type="radio" name="ques{{qn}}" value="{{line}}" style="margin-left:2%; margin-right:1%;">
+                            <label class="form-check-label" for="ques"> {{line}} </label>
+                        {% endif %}
+                    </div>
+                {% endwith %}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary" style="margin-top:2%;"> Submit </button>
+            </form>
+        {% else %}
+            <div class="alert alert-danger">
+                <p>Question Paper not found</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

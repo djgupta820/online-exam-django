@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Schedule Exam</title>
+{% endblock %}
+
+{% block content%}
+<p class="_dirs"> <a href="{% url 'dashboard' %}">Home </a> &#10095; <a href="{% url 'scheduleExam' %}"> Schedule Exam</a> </p>
+<h1>Schedule Exam</h1>
+{% if error %}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+{% endif %}
+<form action="{% url 'schedule' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form-group"> 
+            <label for="course">Course</label>
+            <input type="text" class="form-control" name="course" id="course" aria-describedby="emailHelp" placeholder="Enter Course"  required>
+        </div>
+        <div class="form-group">
+            <label for="semester">Semester</label>
+            <input type="text" class="form-control" name="semester" id="semester" aria-describedby="emailHelp" placeholder="Enter semester" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" name="subject" id="subject" aria-describedby="emailHelp" placeholder="Enter subject" required>
+        </div>
+        <div class="form-group">
+            <label for="subject_code">Subject Code</label>
+            <input type="text" class="form-control" name="subject_code" id="subject_code" aria-describedby="emailHelp" placeholder="Enter subject code" >
+        </div>
+        <div class="form-group">
+            <label for="date_of_exam">Date of Exam</label>
+            <input type="date" class="form-control" name="date_of_exam" id="date_of_exam" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+            <label for="start_time">Start Time</label>
+            <input type="time" class="form-control" name="start_time" id="start_time" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+            <label for="end_time">End Time</label>
+            <input type="time" class="form-control" name="end_time" id="end_time" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+            <h1>Question file</h1>
+            <label for="ques_file">Select File</label>
+            <input type="file" class="form-control" name="ques_file" id="ques_file" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+            <h1>Answer file</h1>
+            <label for="ans_file">Select File</label>
+            <input type="file" class="form-control" name="ans_file" id="ans_file" aria-describedby="emailHelp" required>
+        </div>
+        <button type="submit" class="btn btn-outline-success" style="margin-top:10px;">Schedule</button>
+</form>
+
+{% endblock %}

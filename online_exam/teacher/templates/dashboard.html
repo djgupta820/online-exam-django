@@ -1,0 +1,126 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Dashboard</title>
+{% endblock %}
+
+{% block content %}
+    <p class="_dirs"> <a href="{% url 'dashboard' %}">Home</a> </p>
+    <h1>Dashboard</h1>
+    <div style="display:flex;">
+        <div>
+            <div class="card" style="width: 18rem; background-color: grey; color:white;">
+                <img class="card-img-top" src="{% static 'user.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{det.first_name}} {{det.last_name}} </h5>
+                  <p class="card-text">{{det.email}} </p>
+                  <!-- <a href="{% url 'profile' %}" class="btn btn-primary">View Profile</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bd">
+            <div class="row">
+                <!-- Cloumn -->
+                
+                    <div class="col-md-6 col-lg-4 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center bx">
+                                <h1 class="font-light text-white">
+                                <i class="mdi mdi-format-list-bulleted"></i>
+                                </h1>
+                                <a href="{% url 'dashboard' %}"><h6 class="text-white">Dashboard</h6> </a>
+                            </div>
+                        </div>
+                    </div>
+                
+            
+                <!-- Cloumn -->
+                
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center bx">
+                                <h1 class="font-light text-white">
+                                <i class="mdi mdi-arrow-all"></i>
+                                </h1>
+                                <a href="{% url 'courses' %}"> <h6 class="text-white">Courses</h6> </a>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-success text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-format-list-bulleted"></i>
+                            </h1>
+                            <a href="{% url 'students' %}"><h6 class="text-white">Student List</h6></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-dark text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-arrow-all"></i>
+                            </h1>
+                            <a href="{% url 'exams' %}"> <h6 class="text-white">Exams</h6> </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-2 col-xlg-3" onclick="openScheduleExam();">
+                    <div class="card card-hover">
+                        <div class="box bg-danger text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-arrow-all"></i>
+                            </h1>
+                            <a href="{% url 'scheduleExam' %}"><h6 class="text-white">Schedule Exam</h6></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-4 col-xlg-3" onclick="openStudentList();">
+                    <div class="card card-hover">
+                        <div class="box bg-primary text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-format-list-bulleted"></i>
+                            </h1>
+                            <a href="{% url 'profile' %}"><h6 class="text-white">Profile</h6></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-2 col-xlg-3" onclick="openScheduleExam();">
+                    <div class="card card-hover">
+                        <div class="box bg-danger text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-arrow-all"></i>
+                            </h1>
+                            <a href="{% url 'logout' %}"><h6 class="text-white">Logout</h6></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloumn -->
+                <div class="col-md-6 col-lg-4 col-xlg-3" onclick="openStudentList();">
+                    <div class="card card-hover">
+                        <div class="box bg-primary text-center bx">
+                            <h1 class="font-light text-white">
+                            <i class="mdi mdi-format-list-bulleted"></i>
+                            </h1>
+                            <a href="{% url 'calender' %}"><h6 class="text-white">Calender</h6></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

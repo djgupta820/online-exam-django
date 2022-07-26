@@ -1,0 +1,72 @@
+.exm{
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    padding:1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 1rem;
+    box-shadow: 0 0 .5rem black;
+    min-width: 18rem;
+}
+.exm h4{
+    color: green;
+}
+.exm strong{
+    color: rgb(233, 55, 55);
+}
+.exm b{
+    margin-left: .5rem;
+    text-align:center;
+}
+.exm:hover{
+    background-color: rgb(230, 225, 225);
+    box-shadow: 0 0 1rem black;
+    transition: background-color .5s;
+}
+.box{
+    margin: 3%;
+    margin-left: 15%;
+    border: 1px solid gray;
+    /*justify-content: center;*/
+    align-items: center;
+    padding: 1rem;
+    display: flex;
+    border-radius: 8px;
+    background-color: white;
+    max-width: 60rem;
+    box-shadow: 0 0 .3rem;
+}
+.pro-img{
+    padding: 1rem;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid gray;
+    min-width:30%;
+    min-height: 50vh;
+    margin-left: 1%;
+    margin-right: 3%;
+    /*box-shadow: 0 0 0.5rem;*/
+}
+.pro-img img{
+    width: 200px;
+    height: 200px;
+}
+.pro-img h4{
+    text-transform: uppercase;
+}
+.data{
+    padding: 1rem;
+    display: block;
+    margin-left: 10%;
+    margin-right: 3%;
+    min-width: 50%;
+    min-height: 50vh;
+}
+.data h3{
+    text-transform: uppercase;
+    color: orangered;
+}
+#clock{
+    color:red;
+}

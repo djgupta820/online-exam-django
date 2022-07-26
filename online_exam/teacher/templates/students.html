@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Students</title>
+{% endblock %}
+
+{% block content %}
+<p class="_dirs"> <a href="{% url 'dashboard' %}">Home </a> &#10095; <a href="{% url 'students' %}"> Students</a> </p>
+    <h1>Students</h1>
+    <div style="display:flex;">
+        <form action="{% url 'search_st_name' %}" method="GET" style="margin-right:20px;">
+            <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" name="query" id="query" class="form-control" placeholder="search by name" style="border-top-right-radius:0px; border-bottom-right-radius:0px;" />
+                </div>
+                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i>Search </button>
+            </div>
+        </form>
+    
+        <form action="{% url 'search_st_roll_no' %}" method="GET" style="margin-right:20px;">
+            <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" name="query" id="query" class="form-control" placeholder="search by Roll Number" style="border-top-right-radius:0px; border-bottom-right-radius:0px;" />
+                </div>
+                <button type="submit" class="btn btn-outline-warning"><i class="fas fa-search"></i>Search </button>
+            </div>
+        </form>
+    </div>
+    {% if students %}
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Roll Number</th>
+                <th scope="col">Course</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Joined</th>
+                <th scope="col">Registered at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{student.first_name}}</td>
+                <td>{{student.last_name}}</td>
+                <td>{{student.email}}</td>
+                <td>0{{student.roll_number}}</td>
+                <td>{{student.course}}</td>
+                <td>{{student.semester}}</td>
+                <td>{{student.joined}}</td>
+                <td>{{student.registered_at}}</td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-danger"> <b> Information not available </b> </div>
+    {% endif %}
+{% endblock %}

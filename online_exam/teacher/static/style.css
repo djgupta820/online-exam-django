@@ -1,0 +1,104 @@
+body{
+    background-color: #CDDEF0;
+}
+._dirs{
+    font-size: small;
+    font-weight: bold;
+    float: right;
+    margin-right: 20px;
+}
+._dirs a{
+    text-decoration: none;
+}
+.bd{
+    padding: 20px;    
+}
+.bd div a{
+    text-decoration: none;
+}
+.bx{
+    min-height: 80px;
+    text-align: center;
+}
+.container{
+    width:100%; 
+    height:100vh; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+}
+.calender{
+    width:50rem; 
+    height:57rem; 
+    box-shadow:0 0.5rem 3rem rgba(0, 0, 0, 0.4); 
+    margin-top:40vh;
+}
+.month{
+    width:100%; 
+    height:8rem; 
+    background-color: #167e56; 
+    display:flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center; 
+    padding: 2rem; 
+    color:white;
+}
+.month h1{
+    margin-bottom: 1rem; 
+    text-transform:uppercase; 
+    letter-spacing:0.5rem;
+}
+.month i{
+    font-size:2rem; 
+    cursor:pointer;
+}
+.weekdays{
+    width: 100%; 
+    height:5rem ; 
+    padding: 0 0.5rem; 
+    display: flex; 
+    align-items: center;
+}
+.weekdays div{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    width: calc(52rem/7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+.days{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .2rem;
+}
+.days div{
+    font-size: 1.4rem;
+    margin: .3rem;
+    width: calc(44.5rem/7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+    transition: background-color .5s;
+}
+.days div:hover:not(.today){
+    background-color: #262626;
+    border: .2rem solid #777;
+    cursor: pointer;
+    color: white;
+}
+.prev-date, .next-date{
+    opacity: .5;
+}
+.today{
+    background-color: #167e56;
+}
+#question-paper{
+    border: 1px solid black;
+}
